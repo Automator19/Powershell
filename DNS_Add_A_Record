@@ -15,14 +15,12 @@ foreach ($line in $csv)
 
     $name = $line.name
     $zonename = $line.zonename
-    $RecordType = $line.recordtype
+    # $RecordType = $line.recordtype
     $dnsserver = $line.dnsserver
     $ipaddress = $line.ipaddress
 
     Add-DnsServerResourceRecordA -Name $name -ZoneName $zonename -IPv4Address $ipaddress -Computername $dnsserver -ErrorAction Stop
-
     Get-DnsServerResourceRecord -computername $dnsserver -ZoneName $zonename -name $name -RRType "A"
-
     Get-DnsServerResourceRecord -computername $dnsserver -ZoneName $zonename -name $name -RRType "Ptr"
 
 }
