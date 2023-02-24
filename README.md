@@ -24,7 +24,9 @@ foreach ($File in get-childitem) {
 `New-Object System.Net.Sockets.TCPClient -Argument "10.196.143.115","4904"`
 
 ### Search for CNAME record for a single machine (for A record change RRType parameter value)
-`Get-DnsServerResourceRecord -ZoneName "domain" -ComputerName "dnsservername" -RRType "CName" | select HostName,RecordType,Timestamp,TimeToLive,@{Name='RecordData';Expression={$_.RecordData.HostNameAlias.ToString()}} | Where {$_.RecordData -match "hostname"}`
+```
+Get-DnsServerResourceRecord -ZoneName "domain" -ComputerName "dnsservername" -RRType "CName" | select HostName,RecordType,Timestamp,TimeToLive,@{Name='RecordData';Expression={$_.RecordData.HostNameAlias.ToString()}} | Where {$_.RecordData -match "hostname"}
+```
 
 ### List PTR records
 `Get-DnsServerResourceRecord -ZoneName "196.10.in-addr.arpa" -ComputerName "DNSServer"`
