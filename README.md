@@ -54,16 +54,6 @@ netsh interface ipv4 add dnsserver name="PROD" address=x.x.x.x index=1
 ### force ad replication (push request)
 `repadmin /syncall /APeD (P=Push)`
 
-### System restart event logs
- ```
- 1074 - Displays who initiated the restart, if windows update has initiated restart
- 1076 - Reason for last shutdown
- 41 - if system was rebooted or shutodwn unexpectedly
- 6006 - “The event log service was stopped.” This happens during shutdown
- 6005 - “The event log service was started.” This happens during startup
- 6008 - Gets logged if previous shutdown was unexpected
- 6013 - Shows system Uptime
-```
 ### vlookup from another sheet
 ` =VLOOKUP(A2,Sheet2!$A$1:$W$10,2,FALSE)`
 
