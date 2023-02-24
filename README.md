@@ -1,4 +1,5 @@
 # Powershell
 Collection of PS scripts for various admin tasks
-## add user
-`usradd -s /bin/bash -u 201 testuser`
+
+# Search for a string in a log file
+`select-string -path "C:\Windows\System32\LogFiles\SMTPSVC1\*" -pattern "enter-string-here"`
