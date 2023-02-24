@@ -1,0 +1,10 @@
+To delete items older than 30 days
+
+# Get-PnPRecycleBinItem -SecondStage | where-object {$_.deleteddate -lt (Get-date).Adddays(-30)} | select Title, ItemType, Size, ItemState, DirName, deleteddate
+
+# Get-PnPRecycleBinItem -SecondStage | where-object {$_.deleteddate -lt (Get-date).Adddays(-30)} | Clear-PnPRecycleBinItem -secondstageonly
+
+
+I have variable $siteurl so -connection can be used in pnjp cmdlets . This is to ensure script is only targetting desired URL.
+
+Using pnp modules to exexute various commands - https://pnp.github.io/powershell/articles/index.html
